@@ -1,7 +1,6 @@
 <h1>Kalkulator spalanych kalorii podczas różnych aktywności</h1>
 
-
-<form action="spalanie-wynik/" method="post">
+<form action="{% url 'calcs:spalanie' %}" method="post">
     {% csrf_token %}
     <select name="czynnosc">
         {% for cz in wszystkieczynnosci %}

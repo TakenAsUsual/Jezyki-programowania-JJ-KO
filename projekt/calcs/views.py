@@ -12,5 +12,6 @@ def spalanie(request):
     czas = float(request.POST['czas'])
     masa = float(request.POST['masa'])
     spalane_kalorie = MET * (czas / 60) * masa
-    spalane_kalorie = (str(spalane_kalorie) + ' kcal')
-    return render(request, 'calcs/spalanie.html', {'spalane_kalorie': spalane_kalorie, 'wszystkieczynnosci': wszystkieczynnosci})
+    zaok_spalane_kalorie = round(spalane_kalorie, 1)
+    str_spalane_kalorie = (str(zaok_spalane_kalorie) + ' kcal')
+    return render(request, 'calcs/spalanie.html', {'spalane_kalorie': str_spalane_kalorie, 'wszystkieczynnosci': wszystkieczynnosci})
