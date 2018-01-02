@@ -2,9 +2,11 @@ from django.shortcuts import render
 from .models import Czynnosc
 from django.http import HttpResponse
 
+
 def index(request):
     wszystkieczynnosci = Czynnosc.objects.all()
     return render(request, 'calcs/spalanie.html', {'wszystkieczynnosci': wszystkieczynnosci})
+
 
 def spalanie(request):
     wszystkieczynnosci = Czynnosc.objects.all()
