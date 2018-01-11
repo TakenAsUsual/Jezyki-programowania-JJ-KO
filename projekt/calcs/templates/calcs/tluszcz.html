@@ -34,22 +34,19 @@
                 </naw>
             </header>
             <div class="main">
-                <form action="{% url 'calcs:spalanie_wynik' %}" method="post">
+                 <form action="{% url 'calcs:tluszcz_wynik' %}" method="post">
                     {% csrf_token %}
-                    <h1>Kalkulator spalanych kalorii podczas różnych czynności</h1>
+                    <h1>Kalkulator procentowej zawartości tkanki tłuszczowe w organiźmie</h1>
                     <br>
                     <br>
-                    {% csrf_token %}
-                    <select name="czynnosc">
-                        {% for cz in wszystkieczynnosci %}
-                            <option value="{{ cz.met }}">{{ cz.nazwa }}</option>
-                        {% endfor %}
-                    </select><br><br>
-                    Czas wykonywania aktywności [min]: <input type="text" name="czas"><br><br>
+                    Płeć:<br>
+                    <input type="radio" name="plec" value="0">Mężczyzna<br>
+                    <input type="radio" name="plec" value="1">Kobieta<br>
                     Masa ciała [kg]: <input type="text" name="masa"><br>
-                    <input type="submit" value="Oblicz" name="oblicz"><br><br>
+                    Obwód pasa [cm]: <input type="text" name="op"><br>
+                    <input type="submit" value="Oblicz TT" name="oblicz"><br><br>
                     <h2>
-                        Podczas swojej aktywności spaliłeś / spaliłaś: <font color="blue">{{ spalane_kalorie }}</font>
+                        Zawartość tkanki tłuszczowej w Twoim organiźmie wynosi: <font color="blue"> {{ TT_wynik }} </font>
                     </h2>
                 </form>
             </div>

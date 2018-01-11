@@ -34,22 +34,16 @@
                 </naw>
             </header>
             <div class="main">
-                <form action="{% url 'calcs:spalanie_wynik' %}" method="post">
+                <form action="{% url 'calcs:bmi_wynik' %}" method="post">
                     {% csrf_token %}
-                    <h1>Kalkulator spalanych kalorii podczas różnych czynności</h1>
+                    <h1>Kalkulator BMI</h1>
                     <br>
                     <br>
-                    {% csrf_token %}
-                    <select name="czynnosc">
-                        {% for cz in wszystkieczynnosci %}
-                            <option value="{{ cz.met }}">{{ cz.nazwa }}</option>
-                        {% endfor %}
-                    </select><br><br>
-                    Czas wykonywania aktywności [min]: <input type="text" name="czas"><br><br>
                     Masa ciała [kg]: <input type="text" name="masa"><br>
-                    <input type="submit" value="Oblicz" name="oblicz"><br><br>
+                    Wzrost [cm]: <input type="text" name="wzrost"><br>
+                    <input type="submit" value="Oblicz BMI" name="oblicz"><br><br>
                     <h2>
-                        Podczas swojej aktywności spaliłeś / spaliłaś: <font color="blue">{{ spalane_kalorie }}</font>
+                        Twoje BMI wynosi: <font color="blue">{{ bmi_wynik }}</font>
                     </h2>
                 </form>
             </div>

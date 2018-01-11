@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 {% load staticfiles %}
 <html>
     <head>
@@ -6,6 +7,7 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     </head>
     <body>
         <div id="side">
@@ -34,24 +36,17 @@
                 </naw>
             </header>
             <div class="main">
-                <form action="{% url 'calcs:spalanie_wynik' %}" method="post">
-                    {% csrf_token %}
-                    <h1>Kalkulator spalanych kalorii podczas różnych czynności</h1>
-                    <br>
-                    <br>
-                    {% csrf_token %}
-                    <select name="czynnosc">
-                        {% for cz in wszystkieczynnosci %}
-                            <option value="{{ cz.met }}">{{ cz.nazwa }}</option>
-                        {% endfor %}
-                    </select><br><br>
-                    Czas wykonywania aktywności [min]: <input type="text" name="czas"><br><br>
-                    Masa ciała [kg]: <input type="text" name="masa"><br>
-                    <input type="submit" value="Oblicz" name="oblicz"><br><br>
-                    <h2>
-                        Podczas swojej aktywności spaliłeś / spaliłaś: <font color="blue">{{ spalane_kalorie }}</font>
-                    </h2>
-                </form>
+                <header>
+                    <h2>Nowości</h2>
+                </header>
+                <article>
+                    <p>
+                        Zdążyłeś już zapomnieć o swoich noworocznych postanowieniach? Niedobrze. Ale nie wszystko jeszcze stracone! Pomożemy Ci sformułować realistyczne cele,
+                        zaplanować właściwą strategię i w końcu dopiąć swego. Tym razem swoich obietnic dotrzymasz!
+                        Użyj naszych kalkulatorów aby dokładnie sprawdzić stan swojej sylwetki, ocenić zapotrzebowanie kaloryczne i ostatecznie pomóc sobie w ustaleniu odpowiedniej,
+                        zbilansowanej diety. Życzymy przyjemnego użytkowania i polecajcie naszą stronę swoim znajomym.
+                    </p>
+                </article>
             </div>
         </div>
         <footer>
